@@ -116,7 +116,7 @@ func follow_looking_at(target_camera_position : Spatial, target_object_focus : S
 	
 
 ## Follow in realime the target camera
-#  @target_camera_position The target position node of the camera
+#  @target_camera_position The target position node of the camera (can be a Camera node)
 #  @duration the duration in second of the movement
 func follow(target_camera_position : Spatial, duration : float) :
 	assert(target_camera_position != null)
