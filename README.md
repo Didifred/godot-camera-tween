@@ -44,7 +44,8 @@ if you do not have Git installed.
 
 2. For tween like animations, use following functions calls:
    ```
-   interpolate_looking_at(target_camera_position : Spatial, target_object_focus : Spatial, duration : float, trans_type=0, ease_type=2, delay=0, follow=false ) or
+   interpolate_looking_at(target_camera_position : Spatial, target_object_focus : Spatial, duration : float, trans_type=0, ease_type=2, delay=0, follow=false ) 
+   or
    interpolate(target_camera_position : Spatial, duration : float, trans_type=0, ease_type=2, delay=0, follow=false )
    start()
    ```
@@ -52,12 +53,19 @@ if you do not have Git installed.
    For follow behaviour, use following function calls :
    ```
    follow_looking_at(target_camera_position : Spatial, target_object_focus : Spatial, duration : float)
+   or
    follow(target_camera_position : Spatial, duration : float)
     ```
     
 3. Configure the CameraTween's parameter values to your liking.
-
-
+   bezier_curve_enable : (true/false), use a curve trajectory for camera tween animation
+   bake_interval : in meters, interval distance of pre-calculated points for the internal Curve3D
+   follow_target : (true/false) if true follow the target camera in real time, interrupting an eventual bezier curve
+   minimum_distance_factor : (0 to 1.0) , minimum distance between the camera and the focused object to avoid, 1.0 means the distance of the camera target to object to focus.
+   object_up_vector : up vector used to avoid object, usually Vector3(0,1,0) 
+   tween_rotation_speed_pow : rotation speed pow, value > 1.0 make slow rotation progress at start of the animation but accelerate after to reach the target.
+   follow_progress_speed :  progress speed in follow mode, between 0 and 1.0. If 1, reach immediately the target rotation / camera params. If 0, frozen rotation / camera params.
+   
 ## License
 
 Copyright © 2021 Didifred
