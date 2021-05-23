@@ -19,7 +19,8 @@ Optionally it can look at a target object and avoid it with a configurarable min
 
 Note that the deprecated InterpolatedCamera can be replaced with this add-on using simply the function   ```func follow(target_camera_position : Spatial, duration : float)```
 
-This repository only contains the add-on. See xxx for the demonstration project.
+This repository only contains the add-on. 
+See https://github.com/Didifred/godot-3d-mannequin/tree/feature/camera-tween-demo for the demonstration project.
 
 ## Installation
 
