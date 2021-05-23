@@ -60,6 +60,7 @@ if you do not have Git installed.
     ```
     
 3. Configure the CameraTween's parameter values to your liking.
+
    bezier_curve_enable : (true/false), use a curve trajectory for camera tween animation
    
    bake_interval : in meters, interval distance of pre-calculated points for the internal Curve3D
