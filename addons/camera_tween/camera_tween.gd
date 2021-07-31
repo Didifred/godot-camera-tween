@@ -299,7 +299,7 @@ func _build_new_path(intermediate_points : PoolVector3Array):
 			# Adapt control points of previous and next points from new inserted point
 			if index_path == 1 :
 				# adapt the control points for first point after the insertion of the new point
-				var length_straight_first = (_path.get_point_position(1) - _path.get_point_position(0)).length()
+				var length_straight_first := (_path.get_point_position(1) - _path.get_point_position(0)).length()
 				_path.set_point_in(0, -initial_camera_direction*length_straight_first * bezier_control_point_strength / 2)
 				_path.set_point_out(0, initial_camera_direction*length_straight_first * bezier_control_point_strength / 2)
 			else :
@@ -310,7 +310,7 @@ func _build_new_path(intermediate_points : PoolVector3Array):
 		
 			if index_path == nb_points - 2 :
 				# adapt the control points for last point after the insertion of the new point
-				var length_straight_last = (_path.get_point_position(index_path + 1) - _path.get_point_position(index_path)).length()
+				var length_straight_last := (_path.get_point_position(index_path + 1) - _path.get_point_position(index_path)).length()
 				_path.set_point_in(index_path + 1, -final_camera_direction*length_straight_last * bezier_control_point_strength / 2)
 				_path.set_point_out(index_path + 1, final_camera_direction*length_straight_last * bezier_control_point_strength / 2)
 			else :
