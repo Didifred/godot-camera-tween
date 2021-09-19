@@ -1,6 +1,6 @@
 # godot-camera-tween
 
-**This add-on is compatible with Godot 3.2.x.**
+**This add-on is compatible with Godot 3.3.x.**
 
 A extended camera node add-on to do animations between two camera positions with various easing curves.
 
@@ -9,15 +9,17 @@ ___
 This add-on allows to do animation movements of a camera in a given time duration with various easing curves (the same than Tween node).
 It can behave in 2 different modes non-exclusive :
 - Tween like animation, the camera goes to current position to the target in a given (strictly) duration.
-The camera trajectory can be simply straight or curved using bezier path automatically computed precalculated at start of the animation
+The camera trajectory can be simply straight or curved using bezier path automatically pre-computed at start of the animation.
+Optionnally for bezier curves, user can add some intermediate points to pass throught.
+
 - Follow in realtime the target camera position with constant time duration.
 
-When the target camera position move after the start of the animation, it is suitable to follow it in realtime. 
+When the target camera position move after the start of the animation (one example in third person view), it is suitable to follow it in realtime. 
 For that Tween like animation APIs have a follow boolean option. It is also possible to switch to follow mode after the start of the animation.
 
 Optionally it can look at a target object and avoid it with a configurarable minimum distance.
 
-Note that the deprecated InterpolatedCamera can be replaced with this add-on using simply the function   ```func follow(target_camera_position : Spatial, duration : float)```
+Note that the deprecated InterpolatedCamera of Godot v4.0 can be replaced with this add-on using simply the function ```func follow(target_camera_position : Spatial, duration : float)```
 
 This repository only contains the add-on.
 
@@ -52,6 +54,9 @@ if you do not have Git installed.
    start()
    ```
    
+   New in v2.0 :
+   Additionnal intermediate points when bezier curves are used can be added with optional PoolVector3Array argument ``` intermediate_points ```.
+   
    For follow behaviour, use following function calls :
    ```
    follow_looking_at(target_camera_position : Spatial, target_object_focus : Spatial, duration : float)
@@ -63,11 +68,13 @@ if you do not have Git installed.
 
    bezier_curve_enable : (true/false), use a curve trajectory for camera tween animation
    
+   bezier_control_point_strength : (real), define the excentricity of the curve, by default 0.6 gives "round" curves
+   
    bake_interval : in meters, interval distance of pre-calculated points for the internal Curve3D
    
    follow_target : (true/false) if true follow the target camera in real time, interrupting an eventual bezier curve
    
-   minimum_distance_factor : (0 to 1.0) , minimum distance between the camera and the focused object to avoid, 1.0 means the distance of the camera target to object to focus.
+   camera_minimum_distance : real, minimum distance to guarentee between the camera and the focused object to avoid.
    
    object_up_vector : up vector used to avoid object, usually Vector3(0,1,0) 
    
