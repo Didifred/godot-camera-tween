@@ -1,6 +1,6 @@
 # godot-camera-tween
 
-**This add-on is compatible with Godot 3.3.x.**
+**This add-on is compatible with Godot 3.x.**
 
 A extended camera node add-on to do animations between two camera positions with various easing curves.
 
